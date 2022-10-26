@@ -54,7 +54,7 @@ export class GameScreenComponent implements OnInit {
 
     this.timerSubscription = timer(1000, 1000).subscribe(() => {
       this.time--
-      this.time == 0 ? this.endGame() : console.log('siga');
+      if(this.time == 0) this.endGame();
     })
 
     this.randomSubscription = interval(1000).subscribe(() => this.getRandomHole())
@@ -64,6 +64,9 @@ export class GameScreenComponent implements OnInit {
     this.randomSubscription.unsubscribe()
 
     const randomVal = Math.floor(Math.random() * this.holes.length)
+
+    // Uses random to both set a new mole or in case a mole is in that hole make it disappear and subtract one point
+    // When I saw that functionality (of making it disappear I had already done the project so I added it last moment)
     this.holes[randomVal].hasMole ? this.moleGone(this.holes[randomVal]) : this.holes[randomVal].hasMole = true;
 
     this.randomSubscription = interval(this.randomRange()).subscribe(() => this.getRandomHole());
