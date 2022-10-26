@@ -1,0 +1,13 @@
+<section>
+    <h2>Score: {{ score$ | async }}</h2>
+    <h4>Highest score: {{ highestScore$ | async }}</h4>
+    <div *ngIf="gameStarted" class="background">
+        <div *ngFor="let hole of holes; let i =index" class="hole" [class.hasMole]="hole.hasMole" (click)="whack(hole)">
+        </div>
+    </div>
+    <div *ngIf="!gameStarted" class="background">
+        <button (click)="startGame()">{{ (firstGame$ | async) ? 'Start' : 'Try again' }}</button>
+    </div>
+
+    <h4>Time left: {{ time }}</h4>
+</section>

@@ -1,0 +1,19 @@
+.background {
+    background-color: grey;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    justify-items: center;
+
+    .hole {
+        height: 150px;
+        width: 150px;
+        background-color: #bbb;
+        border-radius: 50%;
+    }
+
+    .hasMole {
+        background-color: red;
+    }
+}
