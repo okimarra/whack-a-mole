@@ -24,7 +24,7 @@ export class GameScreenComponent implements OnInit {
   public randomSubscription: Subscription = new Subscription;
   public timerSubscription: Subscription = new Subscription;
 
-  public time = 10;
+  public time = 30;
   public holes: IHole[] = [{ hasMole: false }, { hasMole: false }, { hasMole: false }, { hasMole: false }, { hasMole: false }, { hasMole: false }];
 
   public firstGame$ = this._store$.pipe(
@@ -48,7 +48,7 @@ export class GameScreenComponent implements OnInit {
     this._store$.dispatch(GameActions.startGame());
 
     this.gameStarted = true;
-    this.time = 10;
+    this.time = 30;
 
     for (const h of this.holes) h.hasMole = false;
 
